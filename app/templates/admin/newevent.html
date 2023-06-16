@@ -1,0 +1,188 @@
+{% extends 'admin/adminbase.html' %} {% block content %}
+
+<div class="con-event">
+  <!-- breadcrumb for the current page location  -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb d-flex align-items-center">
+      <i class="bi bi-link fs-4 me-2" style="color: #a5adc6"></i>
+      <li class="breadcrumb-item">
+        <a href="{{url_for('admin.adminHome')}}">Admin</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="{{url_for('admin.adminEvent')}}">Events</a>
+      </li>
+      <li
+        class="breadcrumb-item active"
+        aria-current="page"
+        style="color: #a5adc6"
+      >
+        New
+      </li>
+    </ol>
+  </nav>
+  <!-- add Events -->
+  <div class="new-event">
+    <h1>new event</h1>
+    <form action="" method="post">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="number"
+          class="form-control"
+          id="title"
+          name="title"
+          placeholder="Title"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="event_for" class="form-label">Event For</label>
+        <input
+          type="number"
+          class="form-control"
+          id="event_for"
+          name="event_for"
+          placeholder="Event for"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          name="description"
+          rows="3"
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="tumbnail" class="form-label">Tumbnail</label>
+        <input
+          class="form-control"
+          type="file"
+          id="tumbnail"
+          name="tumbnail"
+          accept="image/*"
+        />
+        <div id="previewthumnail"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="amount_e" class="form-label">Amount Expected</label>
+        <input
+          type="number"
+          class="form-control"
+          id="amount_e"
+          name="amount_e"
+          placeholder="amount expected"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="amount_c" class="form-label">Amount Collected</label>
+        <input
+          type="number"
+          class="form-control"
+          id="amount_c"
+          name="amount_c"
+          placeholder="amount Collected"
+        />
+      </div>
+
+      <div class="gallery-images">
+        <h2>Images of the event</h2>
+        <div class="mb-3">
+          <label for="event_images" class="form-label">Add Images</label>
+          <input
+            class="form-control"
+            type="file"
+            id="event_images"
+            name="event_images"
+            multiple
+            accept="image/*"
+          />
+        </div>
+        <div class="gallery-preview" id="gallery-preview"></div>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+  const tumbnail = document.getElementById("tumbnail");
+  const previewthumnail = document.getElementById("previewthumnail");
+
+  // this is a thumnail image preview
+  tumbnail.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+
+    if (file && file.type.startsWith("image/")) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        const imageUrl = e.target.result;
+
+        // Clear existing preview
+        previewthumnail.innerHTML = `
+      <div class="selected-img">
+        <span onclick="closethumnail()">&#x2715</span>
+        <img src="${imageUrl}" alt="selected image" />
+      </div>
+      `;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
+
+  function closethumnail() {
+    tumbnail.value = "";
+    previewthumnail.innerHTML = "";
+  }
+
+  const gallery_preview = document.getElementById("gallery-preview");
+  const event_images = document.getElementById("event_images");
+  event_images.addEventListener("change", (event) => {
+    const files = event.target.files;
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+
+      if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const imageUrl = e.target.result;
+          // Clear existing preview
+          gallery_preview.innerHTML += `
+      <div class="selected-img">
+        <span onclick="closeimg(this,'${file.name}')">&#x2715</span>
+        <img src="${imageUrl}" alt="selected image" />
+      </div>
+      `;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  });
+
+  function closeimg(e, name) {
+    gallery_preview.removeChild(e.parentNode);
+    let ele = 0;
+
+    let files = Array.from(event_images.files);
+
+    files = files.filter((a) => a.name != name && a);
+
+    // event_images.value = null;
+
+    // for (let i = 0, j = 0; i < event_images.files.length; i++) {
+    //   if (event_images.files[i].name != name) {
+    //     files[j] = event_images.files[i];
+    //     j++;
+    //   }
+    // }
+    // console.log(files);
+    // event_images.files =new FileList(files)
+  }
+</script>
+
+{% endblock %}

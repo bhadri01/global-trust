@@ -1,0 +1,64 @@
+{% extends 'admin/adminbase.html' %} {% block content %}
+
+<div class="con-home">
+  <!-- breadcrumb for the current page location  -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb d-flex align-items-center">
+      <i class="bi bi-link fs-4 me-2" style="color: #a5adc6"></i>
+      <li class="breadcrumb-item">
+        <a href="{{url_for('admin.adminHome')}}">Admin</a>
+      </li>
+      <li
+        class="breadcrumb-item active"
+        aria-current="page"
+        style="color: #a5adc6"
+      >
+        Dashboard
+      </li>
+    </ol>
+  </nav>
+
+  <!-- dashboard list of events -->
+  <div class="dashboard-card">
+    <div class="card-d">
+      <div class="icon-place">
+        <img
+          src="{{url_for('static',filename='/assets/images/icons/event.png')}}"
+          alt="events"
+        />
+      </div>
+      <div class="dash-detail">
+        <span>No of Events</span>
+        <b>20</b>
+      </div>
+    </div>
+
+    <div class="card-d">
+      <div class="icon-place">
+        <img
+          src="{{url_for('static',filename='/assets/images/icons/volunteer.png')}}"
+          alt="events"
+        />
+      </div>
+      <div class="dash-detail">
+        <span>No of volunteers</span>
+        <b>100</b>
+      </div>
+    </div>
+
+    <div class="card-d">
+      <div class="icon-place">
+        <img
+          src="{{url_for('static',filename='/assets/images/icons/gallery.png')}}"
+          alt="events"
+        />
+      </div>
+      <div class="dash-detail">
+        <span>gallery total</span>
+        <b>1020</b>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

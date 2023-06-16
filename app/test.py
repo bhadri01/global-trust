@@ -1,0 +1,2 @@
+email = anish
+print(f"{}")

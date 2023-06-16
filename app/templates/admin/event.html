@@ -1,0 +1,43 @@
+{% extends 'admin/adminbase.html' %} {% block content %}
+
+<div class="con-event">
+  <!-- breadcrumb for the current page location  -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb d-flex align-items-center">
+      <i class="bi bi-link fs-4 me-2" style="color: #a5adc6"></i>
+      <li class="breadcrumb-item">
+        <a href="{{url_for('admin.adminHome')}}">Admin</a>
+      </li>
+      <li
+        class="breadcrumb-item active"
+        aria-current="page"
+        style="color: #a5adc6"
+      >
+        Events
+      </li>
+    </ol>
+  </nav>
+  <div class="event-main">
+    <!-- add Events -->
+    <div class="event-new" onclick="window.location = '/admin/event/new'">
+      <div class="icon">
+        <i class="bi bi-plus-circle"></i>
+        <span>add Event</span>
+      </div>
+      <div class="details">
+        Welcome, Admin! Manage content, users, and events effortlessly. Utilize
+        the admin dashboard for seamless event creation, updates, and event
+        management.
+      </div>
+    </div>
+    <!-- end add Events -->
+  </div>
+
+  <!-- list of Events -->
+  <div class="event-list">
+    <h2>events list</h2>
+  </div>
+  <!-- end list of Events -->
+</div>
+
+{% endblock %}

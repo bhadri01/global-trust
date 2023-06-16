@@ -1,0 +1,244 @@
+<!-- about.html -->
+{% extends 'base.html' %} {% block content %}
+
+<div class="inner-banner">
+  <section class="w3l-breadcrumb py-5">
+    <div class="container py-lg-5 py-md-3">
+      <h2 class="title">About Us</h2>
+    </div>
+  </section>
+</div>
+<!-- banner bottom shape -->
+<div class="position-relative">
+  <div class="shape overflow-hidden">
+    <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+    </svg>
+  </div>
+</div>
+<!-- banner bottom shape -->
+<section class="w3l-aboutblock1 py-5" id="about">
+  <div class="container py-lg-5 py-md-3">
+    <div class="row">
+      <div class="col-lg-6">
+        <h5 class="title-small">Anytime Anywhere</h5>
+        <h3 class="title-big text-capitalize">we are leading community care providers</h3>
+        <p class="mt-3">We are a team of registered nurses with over 25 years of experience in various clinical setings
+          including critical care, emergency, aged care, disability and community care. We are committed to provide
+          customized care to meet individual needs.</p>
+        <p class="mt-3">Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut sed diam libero erat. Aenean
+          faucibus
+          nibh et justo cursus.</p>
+        <h3 class="title mt-4">"Over 20 Years of Accomplishments”</h3>
+        <a href="#MoreAboutUs" class="btn btn-primary btn-style mt-lg-5 mt-4">Learn More about Us</a>
+      </div>
+      <div class="col-lg-6 mt-lg-0 mt-5">
+        <img src="{{url_for('static',filename='assets/images/about.jpg')}}" alt="" class="radius-image img-fluid">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- forms -->
+<section class="w3l-forms-9 py-5" id="">
+  <div class="main-w3 py-lg-5 py-md-3">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="main-midd col-lg-9">
+          <div class="row about_blog">
+            <div class="col-lg-6 col-md-6 col-sm-12 about_cont_blog">
+              <div class="full text_align_left">
+                <h3 class="title-big mb-2">Who we are</h3>
+                <p class="mb-3">We are a team of registered nurses with over 25 years of experience in various clinical
+                  setings including critical care, emergency, aged care, disability and community care. We are committed
+                  to provide customized care to meet individual needs.</p>
+                <h3 class="title-big mb-2">What we provide</h3>
+                <ul>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>Community Nursing Care</b></li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>High Intensity Personal Activities</b></li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>Assistance with Daily Personal Activities</b>
+                  </li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>Assistance with Household Tasks</b></li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>Assistance with Community and Civic
+                      Participation</b></li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>Innovative Community Participation &amp;
+                      Development of Daily Living &amp; Life Skills</b></li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>High Intensity Nursing Care</b></li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>PEG Feeding</b></li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>Wound Care</b></li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>Subcutaneous Injections</b></li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>Bowel Care</b></li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>Catheter care</b></li>
+                  <li><i class="fa fa-check-circle"></i class="ml-3"><b>Transportation Services</b></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w3l-team-main" id="team">
+  <div class="team py-5">
+    <div class="container py-lg-5">
+      <div class="title-content text-center">
+        <h3 class="title-big">Happy Volunteers</h3>
+      </div>
+      <div class="team-row mt-md-5 mt-4">
+
+
+        {% for d in data %}
+        <div class="team-wrap">
+          <div class="team-member last text-center">
+            <div class="team-img">
+              <img src="{{url_for('static',filename='assets/images/' ~ d.loc)}}" alt="" class="radius-image img-fluid">
+            </div>
+            <a href="#url" class="team-title">{{d.name}}</a>
+            <p>Volunteers</p>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- end team member -->
+
+        <div class="team-apply">
+          <a href="#url" class="team-title m-0"><span class="fa fa-plus-circle d-block mb-3"></span> Apply for
+            Volunteer</a>
+        </div>
+
+      </div>
+    </div>
+</section>
+<!--//team-sec-->
+<!-- testimonials -->
+<section class="w3l-testimonials" id="testimonials">
+  <!-- /grids -->
+  <div class="customer-layout py-5">
+    <div class="container py-lg-5 py-md-4">
+      <div class="heading align-self text-center">
+        <h6 class="title-small">Our Testimonials</h6>
+        <h3 class="title-big mb-md-5 mb-4">Over 20 Years of Accomplishments</h3>
+      </div>
+      <!-- /grids -->
+      <div class="row testimonial-row">
+        <div id="owl-demo1" class="owl-two owl-carousel owl-theme mb-lg-3 mb-5">
+          <div class="item">
+            <div class="testimonial-content">
+              <div class="testimonial">
+                <blockquote>
+                  <q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
+                    voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
+                </blockquote>
+                <div class="testi-des">
+                  <div class="test-img"><img src="{{url_for('static',filename='assets/images/team1.jpg')}}" class="img-fluid" alt="client-img">
+                  </div>
+                  <div class="peopl align-self">
+                    <h3>Michael D. Kirby</h3>
+                    <p class="indentity">Former U.S. Ambassador </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-content">
+              <div class="testimonial">
+                <blockquote>
+                  <q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
+                    voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
+                </blockquote>
+                <div class="testi-des">
+                  <div class="test-img"><img src="{{url_for('static',filename='assets/images/team2.jpg')}}" class="img-fluid" alt="client-img">
+                  </div>
+                  <div class="peopl align-self">
+                    <h3>Elaine F. Marshall</h3>
+                    <p class="indentity">Secretary of State </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-content">
+              <div class="testimonial">
+                <blockquote>
+                  <q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
+                    voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
+                </blockquote>
+                <div class="testi-des">
+                  <div class="test-img"><img src="{{url_for('static',filename='assets/images/team3.jpg')}}" class="img-fluid" alt="client-img">
+                  </div>
+                  <div class="peopl align-self">
+                    <h3>Janice Hoffman</h3>
+                    <p class="indentity">Chief Operating Officer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-content">
+              <div class="testimonial">
+                <blockquote>
+                  <q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
+                    voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
+                </blockquote>
+                <div class="testi-des">
+                  <div class="test-img"><img src="{{url_for('static',filename='assets/images/team4.jpg')}}" class="img-fluid" alt="client-img">
+                  </div>
+                  <div class="peopl align-self">
+                    <h3>Stefan Homa</h3>
+                    <p class="indentity">Charity architect</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-content">
+              <div class="testimonial">
+                <blockquote>
+                  <q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
+                    voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
+                </blockquote>
+                <div class="testi-des">
+                  <div class="test-img"><img src="{{url_for('static',filename='assets/images/team2.jpg')}}" class="img-fluid" alt="client-img">
+                  </div>
+                  <div class="peopl align-self">
+                    <h3>Jeannie Gooch</h3>
+                    <p class="indentity">Funding teacher</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-content">
+              <div class="testimonial">
+                <blockquote>
+                  <q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
+                    voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
+                </blockquote>
+                <div class="testi-des">
+                  <div class="test-img"><img src="{{url_for('static',filename='assets/images/team3.jpg')}}" class="img-fluid" alt="client-img">
+                  </div>
+                  <div class="peopl align-self">
+                    <h3>Elaine F. Marshall</h3>
+                    <p class="indentity">Secretary of State</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /grids -->
+  </div>
+  <!-- //grids -->
+</section>
+<!-- //testimonials -->
+
+
+{% endblock %}
